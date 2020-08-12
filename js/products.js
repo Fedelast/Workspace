@@ -53,9 +53,10 @@ function showCategoriesList(){
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ category.name +`</h4>
-                            <small class="text-muted">` + category.cost + ` USD </small>
+                            <h4 class="mb-1">`+ category.name + ` <br> <br>  $ `+ category.cost + `   USD </h4> 
+                            <small class="text-muted">` + category.soldCount + ` Vendidos </small>
                         </div>
+                        <br>
                         <p class="mb-1">` + category.description + `</p>
                     </div>
                 </div>
