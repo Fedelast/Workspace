@@ -16,13 +16,13 @@
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <span class="py-2 d-none d-md-inline-block" style="color:white; font-weight: bold;" id="saludo"></span>
-        <button class="py-2 d-none d-md-inline-block btn btn-danger" id="cerrar"> Cerrar sesión</button>
         <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <span class="py-2 d-none d-md-inline-block" style="color:white; font-weight: bold;" id="saludo"></span>
+        <button class="py-2 d-none d-md-inline-block btn btn-danger" id="cerrar"> Cerrar sesión</button>
       </div>
     </nav>
     <main role="main">
@@ -104,41 +104,11 @@
         <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
       </div>
     </footer>
+    <script src="js/loggedin.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
-    <script>
-      
-      const sal = document.getElementById('saludo');
-      const cerrar = document.getElementById('cerrar');
-
-        cerrar.addEventListener('click',function(){
-
-          localStorage.removeItem('user');
-          localStorage.removeItem('pass');
-          location.href = 'login.html';
-
-
-        })
-
-
-        if (localStorage.getItem('user') === null){
-
-            location.href = 'login.html';
-
-
-        }
-        else{
-
-            sal.innerHTML += `Bienvenido, ${localStorage.getItem('user')}`
-
-        }
-
-
-
-
-
-
-    </script>
+    
+  
   </body>
 </html>
