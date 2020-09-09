@@ -69,7 +69,7 @@ function showCategoriesList(){
                 if(ElementoBuscado === undefined || category.name.toLowerCase().indexOf(ElementoBuscado.toLowerCase()) != -1){
 
             htmlContentToAppend += `
-            <a href="category-info.html" class="list-group-item list-group-item-action">
+            <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
                         <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
