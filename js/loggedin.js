@@ -7,7 +7,7 @@
           localStorage.removeItem('pass');
           location.href = 'login.html';
 
-
+          
         })
 
 

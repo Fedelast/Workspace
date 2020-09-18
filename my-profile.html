@@ -40,7 +40,17 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      
+
+      <div class="dropdown">
+        <button class="btn btn-info dropdown-toggle" type="button" style="font-weight: bold;" id="saludo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></button>
+          <div class="dropdown-menu" aria-labelledby="saludo">
+                 <a href="my-profile.html" class="dropdown-item">Mi perfil</a>
+                 <a href="cart.html" class="dropdown-item">Mi carrito</a>
+                 <button class="dropdown-item bg-danger" id="cerrar"> Cerrar sesión</button>
+          </div>
+      </div>
+
     </div>
   </nav>
   <div class="container p-5">
@@ -76,6 +86,7 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
+  <script src="js/loggedin.js"></script>
 </body>
 
 </html>
