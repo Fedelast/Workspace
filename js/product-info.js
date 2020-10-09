@@ -1,6 +1,6 @@
-var array_product
-var array_products
-var array_comments
+var array_product;
+var array_products;
+var array_comments;
 
 
 

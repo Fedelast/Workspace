@@ -46,7 +46,7 @@
         <button class="btn btn-info dropdown-toggle" type="button" style="font-weight: bold;" id="saludo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></button>
           <div class="dropdown-menu" aria-labelledby="saludo">
                  <a href="my-profile.html" class="dropdown-item">Mi perfil</a>
-                 <a href="cart.html" class="dropdown-item">Mi carrito</a>
+                 <a href="cart.html" class="dropdown-item">Mi carrito <span class="badge badge-danger" id="cartQT"></span></a>
                  <button class="dropdown-item bg-danger" id="cerrar"> Cerrar sesión</button>
           </div>
       </div>
@@ -54,14 +54,89 @@
 
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
+  
+
+        <h2 class="mt-5 w-50 mx-auto">Mi carrito</h2>
+      
+        <table class="table w-50 mx-auto mt-5">
+            <thead>
+              <tr>
+                <th>Imagen</th>
+                <th>Producto</th>
+                <th>Precio(USD)</th>
+                <th>Cantidad</th>
+                <th>Subtotal(USD)</th>
+                
+              </tr>
+            </thead>
+            <tbody id="cartList">
+              
+            </tbody>
+            
+
+        </table>
+
+        <div class="container border mt-5 pb-3 rounded border-dark">
+
+          <div class="row">
+
+              <div class="col-8">
+                <form>
+
+                      <div class="form-group mt-3">
+                        <label for="location">País y ciudad</label>
+                        <input type="text" class="form-control" id="location">
+                        
+                      </div>
+
+
+                      <div class="form-group">
+                        <label for="address">Dirección</label>
+                        <input type="password" class="form-control" id="address">
+                      </div>
+                  
+
+                      <label for="shipping">Envío</label>
+                      <select class="form-control" id="shipping" onchange="calculatePrice(0)">
+                          <option value="5">Standard (12 a 15 días)</option> 
+                          <option value="7">Express (5-8 días)</option>
+                          <option value="15">Premium (2-5 días)</option>
+                      </select>
+
+                      <div class="form-group mt-3">
+                      <label for="payCard">Método de pago</label>
+                      <select class="form-control" id="payCard">
+                          <option value="">Tarjeta de crédito</option> 
+                          <option value="">Transferencia bancaria</option>
+                      </select>
+                      </div>
+                </form>
+              
+              </div>
+            
+              <div class="col-4">
+                
+                      <h3 class="text-center pt-4">COSTO ENVÍO:</h3>
+                      
+                      <h2 id="envioCto" class="text-center"></h2>
+                      <br>
+                      <h3 class="pt-2 text-center">TOTAL:</h3>
+                      
+                      <h2 class="text-center" id="total"></h2>
+                      <br>
+                      <button class="btn btn-lg btn-info btn-block">PAGAR</button>
+              
+              
+              </div>
+            
+          </div>
+
+
+
+
+        </div>
+
+  
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
