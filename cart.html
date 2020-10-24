@@ -27,6 +27,10 @@
         font-size: 3.5rem;
       }
     }
+    .hovermouse{
+
+      cursor:pointer;
+    }
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -67,6 +71,7 @@
                 <th>Cantidad</th>
                 <th>Subtotal(USD)</th>
                 
+                
               </tr>
             </thead>
             <tbody id="cartList">
@@ -81,52 +86,89 @@
           <div class="row">
 
               <div class="col-8">
-                <form>
+                <form id="miform" class="needs-validation" novalidate>
 
                       <div class="form-group mt-3">
                         <label for="location">País y ciudad</label>
-                        <input type="text" class="form-control" id="location">
+                        <input type="text" class="form-control" id="location" required>
+                        <div class="invalid-feedback">ingrese país y ciudad</div>
                         
                       </div>
 
 
                       <div class="form-group">
                         <label for="address">Dirección</label>
-                        <input type="password" class="form-control" id="address">
+                        <input type="text" class="form-control" id="address" required>
+                        <div class="invalid-feedback">Ingrese dirección</div>
                       </div>
                   
 
                       <label for="shipping">Envío</label>
-                      <select class="form-control" id="shipping" onchange="calculatePrice(0)">
+                      <select class="form-control" id="shipping" onchange="calculateTotal()">
                           <option value="5">Standard (12 a 15 días)</option> 
                           <option value="7">Express (5-8 días)</option>
                           <option value="15">Premium (2-5 días)</option>
                       </select>
 
                       <div class="form-group mt-3">
-                      <label for="payCard">Método de pago</label>
-                      <select class="form-control" id="payCard">
-                          <option value="">Tarjeta de crédito</option> 
-                          <option value="">Transferencia bancaria</option>
-                      </select>
-                      </div>
+                        <label for="payCard">Método de pago</label>
+                          <br>
+                          
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Seleccionar
+                              </button>
+
+                              
+                              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title">Medio de pago</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                      
+                                    
+                                        <div class="modal-body">
+
+                                          <div class="form-group">
+                                          <input type="radio" id="bank" name="formaP" required checked onclick="pagarTrans()">
+                                          <label for="bank"> Transferencia bancaria </label>
+                                          </div>
+                                          <input type="radio" id="Ccard" name="formaP" onclick="pagarCredito()">
+                                          <label for="Ccard"> Tarjeta de credito </label>
+                                          <hr>
+                                          <div id="formadepago"></div>
+                                          
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                          <button type="button" class="btn btn-primary" data-dismiss="modal" type="submit">Guardar</button>
+                                        </div>
+                                    
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              
+                       </div>
+                      <button type="submit" class="btn btn-lg btn-info btn-block">PAGAR</button>
                 </form>
               
               </div>
             
               <div class="col-4">
                 
-                      <h3 class="text-center pt-4">COSTO ENVÍO:</h3>
+                      <h3 class="text-center mt-5 pt-4">COSTO ENVÍO:</h3>
                       
                       <h2 id="envioCto" class="text-center"></h2>
+                      <br>
                       <br>
                       <h3 class="pt-2 text-center">TOTAL:</h3>
                       
                       <h2 class="text-center" id="total"></h2>
                       <br>
-                      <button class="btn btn-lg btn-info btn-block">PAGAR</button>
-              
-              
               </div>
             
           </div>
@@ -145,12 +187,96 @@
       <div></div>
     </div>
   </div>
+  <script>
+
+            
+            (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+            }, false);
+            });
+            }, false);
+            })();
+
+            const pagarCredito = () =>{
+
+              document.getElementById('formadepago').innerHTML = ``;
+              document.getElementById('formadepago').innerHTML = `<h4> Tarjeta de credito </h4>
+               <br> 
+               <input type="text" class="form-control" placeholder="Numero de tarjeta" required>
+               <div class="invalid-feedback">debe completar el campo</div>
+               <input type="number" class="form-control mt-2" placeholder="CVV" required>
+               <div class="invalid-feedback">debe completar el campo</div>
+               <input type="date" class="form-control mt-2" requiered>
+               <div class="invalid-feedback">debe completar el campo</div>
+              `;
+
+
+            }
+
+            const pagarTrans = () =>{
+
+              document.getElementById('formadepago').innerHTML = ``;
+              document.getElementById('formadepago').innerHTML = `<h4> Transferencia bancaria </h4>
+               <br>
+               <input type="text" class="form-control" placeholder="Numero de cuenta" required>
+               <div class="invalid-feedback">debe completar el campo</div>
+               
+               `;
+
+            }
+
+            document.getElementById('miform').addEventListener('submit',(e)=>{
+
+              let formulario = document.getElementById('miform');
+
+              if ( formulario.checkValidity() ){
+                e.preventDefault();
+                Swal.fire({
+                  title:'Compra realizada con exito',
+                  text:'has comprado con exito',
+                  icon:'success'
+                });
+                
+              }
+              else{
+                Swal.fire({
+                  title:'Hay campos sin completar',
+                  text:'Debes completar todos los campos',
+                  icon:'error'
+                });
+              }
+
+
+
+            })
+
+
+
+            pagarTrans();
+
+
+
+
+
+  </script>
   <script src="js/loggedin.js"></script>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 
 </html>
