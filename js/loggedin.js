@@ -5,6 +5,12 @@
 
           localStorage.removeItem('user');
           localStorage.removeItem('pass');
+          localStorage.removeItem('nombre');
+          localStorage.removeItem('apellido');
+          localStorage.removeItem('edad');
+          localStorage.removeItem('email');
+          localStorage.removeItem('telefono');
+          localStorage.removeItem('imagen');
           location.href = 'login.html';
 
           

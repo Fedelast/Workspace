@@ -69,7 +69,7 @@ function showCategoriesList(){
                 if(ElementoBuscado === undefined || category.name.toLowerCase().indexOf(ElementoBuscado.toLowerCase()) != -1){
 
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
+            <a href="product-info.html" class="list-group-item list-group-item-action col-md-5 ml-5 mb-5">
                 <div class="row">
                     <div class="col-3">
                         <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
@@ -88,12 +88,12 @@ function showCategoriesList(){
             }
         }
 
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
     }
 
     if (htmlContentToAppend === ""){
 
-        document.getElementById("cat-list-container").innerHTML = `<h2> Producto no encontrado </h2>`;
+        document.getElementById("prod-list-container").innerHTML = `<h2> Producto no encontrado </h2>`;
 
     }
 }

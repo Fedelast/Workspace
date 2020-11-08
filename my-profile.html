@@ -53,26 +53,96 @@
 
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+
+      <h2 class="text-center mt-5"> Mi Perfil </h2>
+
+      <div class="container">
+
+        <div class="row mt-5 border border-dark p-5">
+
+          <div class="col-md-8">
+
+            <form id="formperfil">
+
+                  <div class="form-group">
+                    <label for="imagen">Imagen (url)</label>
+                    <input type="text" class="form-control w-50" id="imagen" autocomplete="off" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control w-50" id="nombre" autocomplete="off" required>
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" class="form-control w-50" id="apellido" autocomplete="off" required>
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="edad">Edad</label>
+                    <input type="number" class="form-control w-50" id="edad" autocomplete="off" required>
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control w-50" id="email" autocomplete="off" required>
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" class="form-control w-50" id="telefono" autocomplete="off" required>
+                  </div>
+                  
+                  <input type="submit" class="btn btn-success mt-4" value="Guardar">
+                  
+            
+            </form>
+          
+          
+          </div>
+
+            
+
+
+
+          <div class="col-md-4 bg-success border rounded p-5">
+
+            <div id="m-imagen">
+              
+
+            </div>
+            <hr>
+            <div class="mt-5">
+            <h4 id="m-nombre"></h4>
+            <br>
+            <h4 id="m-apellido"></h4>
+            <br>
+            <h4 id="m-edad"></h4>
+            <br>
+            <h4 id="m-email"></h4>
+            <br>
+            <h4 id="m-telefono"></h4>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
